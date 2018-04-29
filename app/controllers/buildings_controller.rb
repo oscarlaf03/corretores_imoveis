@@ -3,6 +3,7 @@ class BuildingsController < ApplicationController
 
 
   def index
+    @buildings = Building.all
   end
 
   def show
@@ -16,7 +17,7 @@ class BuildingsController < ApplicationController
     @building = Building.new(building_params)
     @building.user = current_user
     if @building.save
-      redirect_to root_path
+      redirect_to building_path(@building)
     else
       render :new
     end
@@ -26,9 +27,16 @@ class BuildingsController < ApplicationController
   end
 
   def update
+    @building.update(building_params)
+    if @building.save
+      redirect_to building_path(@building)
+    else
+      render :edit
+    end
   end
 
   def destroy
+    @building.destroy
   end
 
   private
