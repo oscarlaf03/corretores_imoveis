@@ -1,9 +1,10 @@
-<%= simple_form_for building do |f| %>
+<%= simple_form_for([building], :html => { :multipart => true }) do |f| %>
   <%= f.input :title %>
   <%= f.input :description %>
   <%= f.input :type %>
   <%= f.input :square_meters %>
   <%= f.input :address %>
   <%= f.input :cep %>
+  <%= f.input :photos, as: :file,label: 'Adicionar imagens',:input_html => {  :multiple => true }, name: "building[building_attributes][][photos]" %>
   <%= f.submit  %>
 <% end  %>
