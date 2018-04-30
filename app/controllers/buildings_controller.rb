@@ -7,6 +7,7 @@ class BuildingsController < ApplicationController
   end
 
   def show
+    @photos = @building.photos.all
   end
 
   def new
@@ -17,9 +18,20 @@ class BuildingsController < ApplicationController
     @building = Building.new(building_params)
     @building.user = current_user
     if @building.save
-      redirect_to building_path(@building)
+      unless params[:building][:photos].nil?
+        params[:building][:photos].each do |photo|
+          @photo = @building.photos.create!(image: photo)
+        end
+      end
+      respond_to do |format|
+        format.html {redirect_to building_path(@building)}
+        format.js
+      end
     else
-      render :new
+      respond_to do |format|
+        format.html {render 'shared/form_building', building: @building}
+        format.js
+      end
     end
   end
 
@@ -50,7 +62,7 @@ class BuildingsController < ApplicationController
   end
 
   def building_params
-    params.require(:building).permit(:address, :square_meters, :type, :title, :description, :cep, :user)
+    params.require(:building).permit(:address, :square_meters, :type, :title, :description, :cep)
   end
 
 end
