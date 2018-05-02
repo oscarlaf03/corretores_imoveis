@@ -1,10 +1,3 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
 if User.find_by(email: 'oscar@teste.com').nil?
   user = User.new(email:'oscar@teste.com')
   user.save
@@ -15,7 +8,7 @@ address =["Av. Paulista, 1578 - Bela Vista, São Paulo - SP, 01310-200",
          "Rua Peixoto Gomide, 671 - Jardim Paulista São Paulo - SP, 01409-001",
           "Alameda Min. Rocha Azevedo, 471 - Jardins, São Paulo - SP, 01410-001"]
 apartments = ['ap1', 'ap2', 'ap3']
-seed_photos = ['-1.jpg','-2.jpg','-3.jpg','-4.jpg']
+photos = ['-1.jpg','-2.jpg','-3.jpg','-4.jpg']
 unit_type = ['casa', 'apartamento']
 apartments.each_with_index do |ap, index|
   building = Building.new(unit_type: unit_type.sample, user: user, cep: "Faker::Number.number(10)",
@@ -25,10 +18,11 @@ apartments.each_with_index do |ap, index|
   building.address = address[index]
   building.save
   puts "Building #{index+1} completed"
-  seed_photos.each_with_index do |seed, photo_index|
-    photo = Photo.new
-    photo[:image] = "#{ap}#{seed}"
+  photos.each_with_index do |photo, photo_index|
+    photo = Photo.new()
+    url = "../assets/images/#{ap}#{photo}"
     photo.building = building
+    photo.remote_image_url = url
     photo.save
     puts "Photo #{photo_index+1} of Building #{index+1} completed"
   end
@@ -36,7 +30,6 @@ apartments.each_with_index do |ap, index|
 end
 puts "======="
 puts 'Tasks finished'
-puts "Total buildings:#{Building.count}\nTotal photos:#{Photo.count}"
+puts "Total buildings:#{Building.count}\n Total photos:#{Photo.count}"
 puts "======="
-
 

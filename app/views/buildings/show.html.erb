@@ -1,13 +1,14 @@
 <div class="wrapper">
   <div class="container">
     <h1>Show page for Building id: <%=  @building.id %></h1>
-    <p> title: <%= @building.title  %></p>
-    <p> description: <%= @building.description  %></p>
-    <p>fotos: <%= @photos.count  %></p>
+    <%= render 'shared/building_info',building: @building %>
     <div class="row photo-container ">
       <% @photos.each do |photo| %>
         <%= render 'shared/photo_card', photo: photo %>
       <% end %>
     </div>
+    <% @photos.each do |photo| %>
+      <%= render 'shared/photo_modal', photo: photo %>
+    <% end %>
   </div>
 </div>
