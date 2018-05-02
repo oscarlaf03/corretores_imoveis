@@ -1,5 +1,5 @@
-<div class="col-xs-12 col-sm-4">
-  <div class="card building-card">
+<div class="col-xs-12 col-sm-4 col-lg-6">
+  <div class="card building-card" style= "background-image: url('<%= cl_image_path building.photos.first.image %>');">
     <a class="card-link" href="<%= building_path(building)  %>" >
       <div class="card-category"><%= building.unit_type  %></div>
       <div class="card-description">

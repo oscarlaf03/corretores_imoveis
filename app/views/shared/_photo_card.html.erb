@@ -1,3 +1,3 @@
-<div class="col-xs-12 col-sm-4">
-  <%= cl_image_tag photo.image , class: 'building-photo' %>
+<div class="col-xs-12 col-sm-4" data-toggle="modal" data-target="#photoModal-<%= photo.id  %>">
+  <%= cl_image_tag photo.image , class: 'building-photo-card',height: 300, width: 400 %>
 </div>
