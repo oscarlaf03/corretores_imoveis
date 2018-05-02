@@ -1,0 +1,11 @@
+<div class="col-xs-12 col-sm-4">
+  <div class="card building-card">
+    <a class="card-link" href="<%= building_path(building)  %>" >
+      <div class="card-category"><%= building.unit_type  %></div>
+      <div class="card-description">
+        <h2><%= building.title  %></h2>
+        <p><%= "#{building.description}".truncate(10) %></p>
+      </div>
+    </a>
+  </div>
+</div>
