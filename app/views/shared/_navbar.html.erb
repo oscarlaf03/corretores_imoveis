@@ -7,12 +7,14 @@
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
 
+
     <% if user_signed_in? %>
 
       <!-- Links when logged in -->
+
+      <%= link_to "Ver Imoveís", buildings_path, class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to "Adicionar Imóvel", new_building_path, class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to "Trips", "#", class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to "Messages", "#", class: "navbar-wagon-item navbar-wagon-link" %>
+
 
       <!-- Avatar with dropdown menu -->
       <div class="navbar-wagon-item">
@@ -48,8 +50,8 @@
     <div class="dropdown">
       <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
       <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-        <li><a href="<%= new_building_path %>">Adicionar Imóvel</a></li>
-        <li><a href="#">Other one</a></li>
+        <%= link_to "<li>Ver Imóveis</li>".html_safe ,buildings_path %>
+        <%= link_to "<li>Adicionar Imóvel</li>".html_safe, new_building_path unless user_signed_in? == false || current_user.site_owner == false%>
         <li><a href="#">Other one</a></li>
       </ul>
     </div>

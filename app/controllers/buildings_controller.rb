@@ -3,11 +3,11 @@ class BuildingsController < ApplicationController
 
 
   def index
-    @buildings = Building.all
+    @buildings = Building.all.order(created_at: :desc)
   end
 
   def show
-    @photos = @building.photos.all
+    @photos = @building.photos.all.order(created_at: :desc)
   end
 
   def new
