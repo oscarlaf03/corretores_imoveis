@@ -3,7 +3,13 @@ class BuildingsController < ApplicationController
 
 
   def index
-    @buildings = Building.all.order(created_at: :desc)
+    @buildings = policy_scope(Building)
+    @markers = @buildings.map do |building|
+      {
+        lat: building.latitude
+        lng: building.longitude
+      }
+    end
   end
 
   def show
@@ -11,7 +17,8 @@ class BuildingsController < ApplicationController
   end
 
   def new
-    @building = Building.new
+    @building = Building.new(user: current_user)
+    authorize @building
   end
 
   def create
@@ -59,6 +66,7 @@ class BuildingsController < ApplicationController
 
   def set_building
     @building = Building.find(params[:id])
+    authorize @building
   end
 
   def building_params

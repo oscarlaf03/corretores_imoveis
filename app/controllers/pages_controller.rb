@@ -3,4 +3,8 @@ class PagesController < ApplicationController
 
   def home
   end
+
+  def about
+    @company = Company.find(params[:id])
+  end
 end

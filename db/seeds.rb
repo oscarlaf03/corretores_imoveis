@@ -4,12 +4,15 @@
 # Examples:
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+#   Character.create(name: 'Luke', movie: movies.first)ui
+Building.destroy_all
+
 if User.find_by(email: 'oscar@teste.com').nil?
-  user = User.new(email:'oscar@teste.com')
+  user = User.new(email:'oscar@teste.com', password:'123123', site_owner: true)
   user.save
 else
   user = User.find_by(email: 'oscar@teste.com')
+  user.site_owner = true
 end
 address =["Av. Paulista, 1578 - Bela Vista, São Paulo - SP, 01310-200",
          "Rua Peixoto Gomide, 671 - Jardim Paulista São Paulo - SP, 01409-001",
