@@ -6,8 +6,10 @@ class BuildingsController < ApplicationController
     @buildings = policy_scope(Building)
     @markers = @buildings.map do |building|
       {
-        lat: building.latitude
-        lng: building.longitude
+        lat: building.latitude,
+        lng: building.longitude#,
+                # infoWindow: { content: render_to_string(partial: "/flats/map_box", locals: { flat: flat }) }
+
       }
     end
   end
