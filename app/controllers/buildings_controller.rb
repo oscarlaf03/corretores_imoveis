@@ -16,6 +16,7 @@ class BuildingsController < ApplicationController
 
   def show
     @photos = @building.photos.all.order(created_at: :desc)
+    @markers = [{ lat: @building.latitude, lng: @building.longitude }]
   end
 
   def new
