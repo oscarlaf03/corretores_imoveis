@@ -1,5 +1,5 @@
 class BuildingsController < ApplicationController
-  before_action :set_building, only: [:show, :destoy, :edit, :update]
+  before_action :set_building, only: [:show, :destoy, :edit, :update ]
 
 
   def index
@@ -25,8 +25,9 @@ class BuildingsController < ApplicationController
   end
 
   def create
-    @building = Building.new(building_params)
+    @building = Building.create(building_params)
     @building.user = current_user
+    authorize @building
     if @building.save
       unless params[:building][:photos].nil?
         params[:building][:photos].each do |photo|

@@ -3,7 +3,7 @@
   <%= f.input :description %>
   <%= f.input :unit_type %>
   <%= f.input :square_meters %>
-  <%= f.input :address %>
+  <%= f.input :address, as: :string  %>
   <%= f.input :cep %>
   <%= f.input :photos, as: :file,label: 'Adicionar imagens',:input_html => {  :multiple => true }, name: "building[building_attributes][][photos]" %>
   <%= f.submit  %>

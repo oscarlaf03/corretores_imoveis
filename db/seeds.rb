@@ -24,11 +24,10 @@ apartments = ['ap1', 'ap2', 'ap3']
 seed_photos = ['-1.jpg','-2.jpg','-3.jpg','-4.jpg']
 unit_type = ['casa', 'apartamento']
 apartments.each_with_index do |ap, index|
-  building = Building.new(unit_type: unit_type.sample, user: oscar, cep: "Faker::Number.number(10)",
-                          square_meters:"#{Faker::Number.number(2)}")
+  building = Building.create(unit_type: unit_type.sample, user: oscar, cep: "Faker::Number.number(10)",
+                          square_meters:"#{Faker::Number.number(2)}", address: address[index])
   building.title = "#{building.unit_type} #{Faker::Color.color_name}"
   building.description = "#{Faker::TwinPeaks.quote}"
-  building.address = address[index]
   building.save
   puts "Building #{index+1} completed"
   seed_photos.each_with_index do |seed, photo_index|
