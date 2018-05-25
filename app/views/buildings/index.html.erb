@@ -1,9 +1,9 @@
-  <div class="container building-index">
-    <h1>Escolha o seu imóvel</h1>
-    <div class="row building-card-container">
-      <% @buildings.each do |building| %>
-        <%= render 'shared/building_card', building: building %>
-      <% end %>
-    </div>
-
+<div class="container building-index">
+  <h1>Escolha o seu imóvel</h1>
+  <div class="row building-card-container">
+    <% @buildings.each do |building| %>
+      <%= render 'shared/building_card', building: building %>
+    <% end %>
   </div>
+
+</div>

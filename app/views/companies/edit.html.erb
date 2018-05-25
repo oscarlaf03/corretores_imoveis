@@ -1,2 +1,21 @@
-<h1>Companies#edit</h1>
-<p>Find me in app/views/companies/edit.html.erb</p>
+<div class="container">
+  <h1>Editar informaões</h1>
+
+  <%= simple_form_for @company do |f|   %>
+
+    <%= f.input :name, label:'Nome da empresa' %>
+    <%= f.input :slogan, label:'Slogan da empresa', placeholder:'Este slogan é importante para seu site ser indexado por google e outros motores de busca' %>
+    <%= f.input :description, as: :text, label:'Descrição da empresa', placeholder:'A descrição para sue site apareer nas buscas de google e e outros motores de busca' %>
+    <%= f.input :phone, label:'Telefone' %>
+    <%= f.input :address, label: 'Endereço'%>
+    <%= f.input :logo, label:'Imagem de logo' %>
+    <%= f.input :banner, label:'Imagem de capa da empresa' %>
+    <h3>Links de redes sociais </h3>
+    <%= f.input :facebook  %>
+    <%= f.input :instagram  %>
+    <%= f.input :twitter  %>
+    <%= f.input :linkedin  %>
+    <%= f.submit placeholder: 'Salvar Alterações', class: 'btn btn-success btn-lg'  %>
+  <% end  %>
+
+</div>

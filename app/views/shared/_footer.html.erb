@@ -1,13 +1,24 @@
 <div class="footer-corretor navbar-fixed-bottom">
   <div class="footer-links">
-    <a href="#"><i class="fa fa-github"></i></a>
-    <a href="#"><i class="fa fa-instagram"></i></a>
-    <a href="#"><i class="fa fa-facebook"></i></a>
-    <a href="#"><i class="fa fa-twitter"></i></a>
-    <a href="#"><i class="fa fa-linkedin"></i></a>
+    <a href="<%= company.facebook  %>" target='_blank'><i class="fa fa-facebook"></i></a>
+
+    <a href="<%= company.instagram  %>" target='_blank'><i class="fa fa-instagram"></i></a>
+    <a href="<%= company.twitter  %>" target='_blank'><i class="fa fa-twitter"></i></a>
+    <a href="<%= company.linkedin  %>" target='_blank'><i class="fa fa-linkedin"></i></a>
+  </div>
+  <div class="footer-company-info">
+    <ul>
+      <li>
+        <%= company.name %> Todos os dereitos reservados
+      </li>
+      <li>
+        <%= company.phone  %> <%= company.address  %>
+      </li>
+    </ul>
   </div>
   <div class="footer-copyright">
+
     Built at OO labs
-    <%= link_to t(".sign_in", default: "Admin-Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link footer-admin-login" %>
+    <%= link_to t(".sign_in", default: '<i class="fa fa-user-circle"></i> Admin-Login'.html_safe), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link footer-admin-login" %>
   </div>
 </div>

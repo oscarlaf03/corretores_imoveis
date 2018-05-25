@@ -5,3 +5,21 @@
 @import "building_card";
 @import "photo_card";
 @import "photo_modal";
+@import "wrappers";
+@import "forms";
+@import "buttons";
+
+
+
+//General components variables
+
+.right-align {
+  float: right;
+}
+
+*{
+  --navbar-height: 70px;
+  --footer-height: 80px;
+  --full-height: calc(100vh -  var(--navbar-height) - calc( var(--footer-height) / 4 ) + 10px);
+
+}

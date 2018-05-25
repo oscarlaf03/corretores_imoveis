@@ -5,6 +5,10 @@ class CompanyPolicy < ApplicationPolicy
     end
   end
 
+  def show?
+    is_owner?
+  end
+
   def create?
     is_owner?
   end
@@ -12,6 +16,4 @@ class CompanyPolicy < ApplicationPolicy
   def update?
     is_owner?
   end
-
-
 end

@@ -7,7 +7,7 @@ class ApplicationPolicy
   end
 
   def is_owner?
-    record.user.site_owner
+    user && user.site_owner
   end
 
   def index?

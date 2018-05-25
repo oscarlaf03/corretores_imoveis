@@ -5,5 +5,4 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
   has_many :buildings
   has_many :photos, through: :buildings
-  has_one :company
 end

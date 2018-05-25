@@ -3,23 +3,30 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>TODO</title>
+    <title><%= company.name  %> <%= company.slogan %></title>
+    <meta name='description' content= '<%= company.description  %>'>
+    <meta property="og:description" content="<%= company.description  %> ">
+    <meta property="og:site_name" content="<= company.name %>"/>
+    <meta name="twitter:title" content="<%= company.name  %> <%= company.slogan %>">
+    <meta name="twitter:description" content="<%= company.description  %>">
+    <meta>
     <%= csrf_meta_tags %>
     <%= action_cable_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all' %>
     <%#= stylesheet_pack_tag 'application', media: 'all' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
   </head>
   <body>
-    <%= render 'shared/navbar' %>
-    <%= render 'shared/flashes' %>
-    <%= yield %>
-    <%= javascript_include_tag "application" %>
-    <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?libraries=places&key=#{ENV['GOOGLE_API_BROWSER_KEY']}" %>
+    <div class="outside-wrapper">
+      <%= render 'shared/navbar' %>
+      <%= render 'shared/flashes' %>
+      <%= yield %>
+      <%= javascript_include_tag "application" %>
+      <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?libraries=places&key=#{ENV['GOOGLE_API_BROWSER_KEY']}" %>
 
-    <%= javascript_pack_tag 'application' %>
-    <%= javascript_pack_tag "map" %>
-  </body>
-  <footer>
+      <%= javascript_pack_tag 'application' %>
+      <%= javascript_pack_tag "map" %>
+    </div>
     <%= render 'shared/footer' %>
-  </footer>
+
+  </body>
 </html>

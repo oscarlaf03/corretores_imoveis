@@ -1,2 +1,82 @@
-<h1>Companies#show</h1>
-<p>Find me in app/views/companies/show.html.erb</p>
+<div class="container">
+  <h1>Informações Publicas da Corretora</h1>
+
+  <table class='table'>
+    <tr>
+      <%= link_to '<i class="fa fa-edit"></i> Editar'.html_safe, edit_company_path(@company), class: 'btn btn-primary btn-md right-align'  %>
+    </tr>
+    <tr>
+      <th>
+        Nome da empresa
+      </th>
+      <td>
+        <%= @company.name  %>
+      </td>
+    </tr>
+    <tr>
+      <th>
+        Slogan
+      </th>
+      <td>
+        <%= @company.slogan  %>
+      </td>
+    </tr>
+    <tr>
+      <th>
+        Descrição
+      </th>
+      <td>
+        <%= @company.description  %>
+      </td>
+    </tr>
+    <tr>
+      <th>
+        Telefone
+      </th>
+      <td>
+        <%= @company.phone  %>
+      </td>
+    </tr>
+    <tr>
+      <th>
+        Endereço
+      </th>
+      <td>
+        <%= @company.address  %>
+      </td>
+    </tr>
+    <tr>
+      <th>
+        <i class="fa fa-facebook"></i>
+      </th>
+      <td>
+        <%= @company.facebook  %>
+      </td>
+    </tr>
+    <tr>
+      <th>
+        <i class="fa fa-instagram"></i>
+      </th>
+      <td>
+        <%= @company.instagram  %>
+      </td>
+    </tr>
+    <tr>
+      <th>
+        <i class="fa fa-twitter"></i>
+      </th>
+      <td>
+        <%= @company.twitter  %>
+      </td>
+    </tr>
+    <tr>
+      <th>
+        <i class="fa fa-linkedin"></i>
+      </th>
+      <td>
+        <%= @company.linkedin  %>
+      </td>
+    </tr>
+
+  </table>
+</div>

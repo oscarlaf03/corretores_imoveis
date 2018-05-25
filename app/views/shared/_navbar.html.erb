@@ -1,7 +1,12 @@
 <div class="navbar-wagon">
   <!-- Logo -->
   <%= link_to root_path, class: "navbar-wagon-brand" do %>
-    <%= image_tag "logo.png", height: 50 %>
+    <% if  company.logo.present?%>
+      <%= cl_image_tag company.logo, height: 50 %>
+      <% else %>
+      <%= image_tag "logo.png", height: 50 %>
+    <% end %>
+
   <% end %>
 
   <!-- Right Navigation -->
@@ -13,24 +18,28 @@
       <!-- Links when logged in -->
 
       <%= link_to "Ver Imoveís", buildings_path, class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to "Adicionar Imóvel", new_building_path, class: "navbar-wagon-item navbar-wagon-link" %>
+
+      <%= link_to "Adicionar Imóvel", new_building_path, class: "navbar-wagon-item navbar-wagon-link" if owner?%>
 
 
       <!-- Avatar with dropdown menu -->
       <div class="navbar-wagon-item">
         <div class="dropdown">
-          <%= image_tag "http://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+
+          <div class= "dropdown-toggle" id='navbar-wagon-menu'data-toggle='dropdown'><i class="fa fa-user-circle fa-1x"></i> Admin User</div>
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
             <li>
               <%= link_to "#" do %>
                 <i class="fa fa-user"></i> <%= t(".profile", default: "Profile") %>
               <% end %>
             </li>
-            <li>
-              <%= link_to "#" do %>
-                <i class="fa fa-cog"></i>  <%= t(".settings", default: "Settings") %>
+            <% if owner? %>
+              <li>
+                <%= link_to company_path(company) do %>
+                  <i class="fa fa-cog"></i>  <%= t(".settings", default: "Settings") %>
+                <% end %>
+              </li>
               <% end %>
-            </li>
             <li>
               <%= link_to destroy_user_session_path, method: :delete do %>
                 <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
@@ -50,8 +59,8 @@
     <div class="dropdown">
       <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
       <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-        <%= link_to "<li>Ver Imóveis</li>".html_safe ,buildings_path %>
-        <%= link_to "<li>Adicionar Imóvel</li>".html_safe, new_building_path unless user_signed_in? == false || current_user.site_owner == false%>
+        <li><%= link_to "<li>Ver Imóveis</li>".html_safe ,buildings_path, class: ''  %></li>
+        <li><%= link_to "<li>Adicionar Imóvel</li>".html_safe, new_building_path, class: '' if owner?%> </li>
         <li><a href="#">Other one</a></li>
       </ul>
     </div>
