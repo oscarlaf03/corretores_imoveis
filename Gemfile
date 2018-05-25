@@ -29,6 +29,10 @@ gem "geocoder"
 
 group :development do
   gem 'web-console', '>= 3.3.0'
+  gem 'capybara'
+  gem 'selenium-webdriver'
+  gem 'chromedriver-helper'
+  gem 'launchy'
 end
 
 group :development, :test do
