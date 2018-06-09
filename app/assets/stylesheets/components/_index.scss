@@ -8,6 +8,7 @@
 @import "wrappers";
 @import "forms";
 @import "buttons";
+@import "containers";
 
 
 
@@ -20,6 +21,6 @@
 *{
   --navbar-height: 70px;
   --footer-height: 80px;
-  --full-height: calc(100vh -  var(--navbar-height) - calc( var(--footer-height) / 4 ) + 10px);
-
+   --full-height: calc(100vh -  var(--navbar-height) - calc( var(--footer-height) / 1 ) - 0px);
+  --full-inside-height: calc(var(--full-height) - var(--foter-height));
 }

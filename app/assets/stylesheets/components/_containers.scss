@@ -1,0 +1,17 @@
+.index-container {
+  margin:0px;
+
+
+  .left-container{
+    margin:0px;
+    padding:0px;
+    height: calc( var(--full-height) -  var(--footer-height));
+
+  }
+  .right-container{
+    text-align: center;
+    .building-card-container{
+    text-align: center;
+    }
+  }
+}
