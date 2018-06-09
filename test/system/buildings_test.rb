@@ -7,6 +7,8 @@ class BuildingsTest < ApplicationSystemTestCase
   #
   #   assert_selector "h1", text: "Building"
   # end
+  test
+
   test "visiting the index" do
     visit "/"
     assert_selector "h1", text: "Bem-vindo a: teste 1"
