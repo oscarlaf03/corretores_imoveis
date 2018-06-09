@@ -1,0 +1,7 @@
+<div class="banner main-banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('<%= capa(company) %>');">
+  <div class="banner-content">
+    <h1><%= company.name %></h1>
+    <p><%= company.description %></p>
+    <%= link_to 'Encontrar meu imovel', buildings_path, class: 'btn btn-primary btn-lg' %>
+  </div>
+</div>
