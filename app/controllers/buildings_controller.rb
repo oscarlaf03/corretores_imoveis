@@ -9,7 +9,6 @@ class BuildingsController < ApplicationController
         lat: building.latitude,
         lng: building.longitude#,
                 # infoWindow: { content: render_to_string(partial: "/flats/map_box", locals: { flat: flat }) }
-
       }
     end
   end
@@ -52,6 +51,11 @@ class BuildingsController < ApplicationController
   def update
     @building.update(building_params)
     if @building.save
+      unless params[:building][:photos].nil?
+        params[:building][:photos].each do |photo|
+          @photo = @building.photos.create!(image: photo)
+        end
+      end
       redirect_to building_path(@building)
     else
       render :edit
