@@ -9,8 +9,6 @@ class Building < ApplicationRecord
 
   # after_validation :geocode
 
-
-
   def to_param
     slug
   end
