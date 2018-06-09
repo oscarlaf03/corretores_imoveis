@@ -1,6 +1,18 @@
 // app/javascript/packs/map.js
 import GMaps from 'gmaps/gmaps.js';
 import { autocomplete } from '../components/autocomplete';
+import { batesGreen } from '../components/map_styles/bates_green';
+import { neonWorld } from '../components/map_styles/neon_world';
+import { holiday } from '../components/map_styles/holiday';
+import { colorBlindFriendly } from '../components/map_styles/colorblind_friendly';
+import { brightDessert } from '../components/map_styles/bright_dessert';
+import { flatColors } from '../components/map_styles/flat_colors';
+import { pokemon } from '../components/map_styles/pokemon';
+import { appleLike } from '../components/map_styles/apple_like';
+import { bikes } from '../components/map_styles/bikes';
+
+
+const styles = bikes;
 
 
 const mapElement = document.getElementById('map');
@@ -16,6 +28,12 @@ if (mapElement) { // don't try to build a map if there's no div#map to inject in
   } else {
     map.fitLatLngBounds(markers);
   }
+  map.addStyle({
+    styles: styles,
+    mapTypeId: 'map_style'
+  });
+  map.setStyle('map_style');
+
 }
 
 autocomplete();
