@@ -73,7 +73,7 @@ class BuildingsController < ApplicationController
   end
 
   def set_building
-    @building = Building.find(params[:id])
+    @building = Building.find_by_slug(params[:slug])
     authorize @building
   end
 

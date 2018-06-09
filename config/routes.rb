@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   devise_for :users
   root to: 'pages#home'
-  resources :buildings do
+  resources :buildings, param: :slug do
     resources :photos, only: [:new,:create, :edit, :update]
   end
   resources :photos, only: [:index, :show, :destroy]

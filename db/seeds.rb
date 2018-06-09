@@ -37,3 +37,20 @@ Building.all.each do |b|
   b.save
 end
 
+puts 'creating building slugs'
+
+Building.all.each do |b|
+  b.update_slug
+  b.save
+end
+
+puts 'destroy old photos'
+
+Building.all.each do |b|
+  b.photos.each do |p|
+    p.destroy
+  end
+end
+
+
+puts 'All done'
